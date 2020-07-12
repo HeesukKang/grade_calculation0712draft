@@ -1,5 +1,7 @@
 package com.example.talingpractice1.grade_calculation;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -15,17 +17,37 @@ import java.util.Locale;
 
 public class oneone extends AppCompatActivity {
 
+
+    double totalKorgrade = 0;
+    double totalEnggrade = 0;
+    double totalcredit = 0;
+    double totalKorgradesum = 0;
+    double totalEnggradesum = 0;
+    double  totalcreditShow = 0;
+
+    double totalKorgradeM = 0;
+    double totalEnggradeM = 0;
+    double totalcreditM = 0;
+    double totalKorgradesumM = 0;
+    double totalEnggradesumM = 0; //전공용
+    double MajorKor = 0;
+    double MajorEng = 0;
+
+
     private Spinner oneonecredit1, oneonecredit2, oneonecredit3, oneonecredit4, oneonecredit5, oneonecredit6, oneonecredit7, oneonecredit8, oneonecredit9, oneonecredit10;
     private Spinner oneonegrade1, oneonegrade2, oneonegrade3, oneonegrade4, oneonegrade5, oneonegrade6, oneonegrade7, oneonegrade8, oneonegrade9, oneonegrade10;
     EditText oneonesubject1,oneonesubject2,oneonesubject3,oneonesubject4,oneonesubject5,oneonesubject6,oneonesubject7,oneonesubject8,oneonesubject9,oneonesubject10;
-    private Button btn; //버튼 누르면 학점 계산
+    private Button btn, intentbtn; //버튼 누르면 학점 계산
     CheckBox[] oneonecheck = new CheckBox[10];
     private double RealcreditSum;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_oneone);
+
 
 
 
@@ -224,20 +246,6 @@ public class oneone extends AppCompatActivity {
 
 
 
-                double totalKorgrade = 0;
-                double totalEnggrade = 0;
-                double totalcredit = 0;
-                double totalKorgradesum = 0;
-                double totalEnggradesum = 0;
-                double  totalcreditShow = 0;
-
-                double totalKorgradeM = 0;
-                double totalEnggradeM = 0;
-                double totalcreditM = 0;
-                double totalKorgradesumM = 0;
-                double totalEnggradesumM = 0; //전공용
-                double MajorKor = 0;
-                double MajorEng = 0;
 
 
                 for (int j = 0; j < 10; j++) {
@@ -282,9 +290,28 @@ public class oneone extends AppCompatActivity {
 
 
 
+
+            }
+
+        });
+
+        intentbtn = findViewById(R.id.intentbtn);
+
+        intentbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(oneone.this, MainActivity.class);
+
+                intent.putExtra("oneonetKgs", totalKorgradesum);
+                startActivity(intent);
+
+
             }
         });
 
 
+    }
 
-    }}
+
+}

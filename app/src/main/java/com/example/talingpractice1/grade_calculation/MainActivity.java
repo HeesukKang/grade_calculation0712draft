@@ -6,15 +6,25 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
     Button bt11, bt12, bt21, bt22, bt31, bt32, bt41, bt42, bt_etc;
+    private Intent intent;
+    TextView a2;
+    double oneonetKgs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Intent intent = getIntent();
+        double oneonetKgs = intent.getDoubleExtra("oneonetKgs", 0);
+        a2 = (TextView)findViewById(R.id.a2);
+
+        a2.setText(Double.toString(oneonetKgs));
 
         bt11 = findViewById(R.id.bt11);
         bt12 = findViewById(R.id.bt12);

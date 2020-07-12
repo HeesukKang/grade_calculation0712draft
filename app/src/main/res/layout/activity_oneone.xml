@@ -417,6 +417,11 @@
             android:layout_height="wrap_content"
             android:text="계산" />
 
+        <Button
+            android:id="@+id/intentbtn"
+            android:layout_height="wrap_content"
+            android:text="적용" />
+
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
