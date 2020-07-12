@@ -8,12 +8,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.Locale;
+
 public class MainActivity extends AppCompatActivity {
 
     Button bt11, bt12, bt21, bt22, bt31, bt32, bt41, bt42, bt_etc;
     private Intent intent;
     TextView a2;
-    double oneonetKgs;
+    double oneonetKgs, oneonerealcr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,10 +23,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Intent intent = getIntent();
-        double oneonetKgs = intent.getDoubleExtra("oneonetKgs", 0);
+        oneonetKgs = intent.getDoubleExtra("oneonetKgs", 0);
+        oneonerealcr = intent.getDoubleExtra("oneonerealcr", 0);
+
+
+
+
         a2 = (TextView)findViewById(R.id.a2);
 
-        a2.setText(Double.toString(oneonetKgs));
+        a2.setText(Double.toString(Double.parseDouble(String.format(Locale.getDefault(),"%.3f",(oneonetKgs/oneonerealcr)))));
 
         bt11 = findViewById(R.id.bt11);
         bt12 = findViewById(R.id.bt12);

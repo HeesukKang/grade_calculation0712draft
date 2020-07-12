@@ -304,6 +304,7 @@ public class oneone extends AppCompatActivity {
                 Intent intent = new Intent(oneone.this, MainActivity.class);
 
                 intent.putExtra("oneonetKgs", totalKorgradesum);
+                intent.putExtra("oneonerealcr",totalcredit);
                 startActivity(intent);
 
 
